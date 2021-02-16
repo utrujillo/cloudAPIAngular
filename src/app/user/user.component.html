@@ -1,1 +1,44 @@
-<button class="btn btn-danger">Prueba</button>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <div class='d-flex justify-content-between align-items-center mb-4'>
+        <div class='fz-4 text-white'>Usuarios registrados</div>
+        <button class='btn btn-xl btn-white' data-toggle="modal" data-target="#userModal" (click)="newData()">
+          <i class="fa fa-plus mr-2"></i>Nuevo Usuario
+        </button>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th width='100px'>Opciones</th>
+              <th>Usuario</th>
+              <th>Correo</th>
+              <th>F. Nacimiento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class='text-center'>
+                <i class="fa fa-pencil mr-2" (click)="editData()" data-toggle="modal" data-target="#userModal"></i>
+                <i class="fa fa-eye mr-2"></i>
+                <i class="fa fa-times"></i>
+              </td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<modal type="new" *ngIf="operationType == 'new'; else editModal"></modal>
+<ng-template #editModal>
+  <modal type="edit"></modal>
+</ng-template>

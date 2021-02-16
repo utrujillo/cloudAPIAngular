@@ -1,15 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-user',
+  selector: 'user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  operationType: string;
+
+  constructor() {
+    this.operationType = '';
+  }
 
   ngOnInit(): void {
+  }
+
+  newData(): void {
+    this.operationType = 'new'
+  }
+
+  editData(): void {
+    this.operationType = 'edit'
   }
 
 }
