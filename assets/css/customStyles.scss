@@ -1,0 +1,93 @@
+.fz-1{ font-size: 2em; }
+.fz-2{ font-size: 1.8em; }
+.fz-3{ font-size: 1.6em; }
+.fz-4{ font-size: 1.4em; }
+.fz-5{ font-size: 1.2em; }
+
+header{
+  background: #2C3E50;
+  color: white;
+  padding: 1.5rem .5rem;
+}
+
+section{
+  background: #1ABC9C;
+}
+
+.btn-xl {
+  padding: .8rem 1.25rem;
+  font-size: 1.25rem;
+}
+
+.btn-white{
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+  border-radius: 0.5rem !important;
+  &:hover{
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+  }
+}
+
+.btn-green{
+  background: #1abc9c;
+  color: #fff;
+  border-radius: 0.5rem !important;
+  &:hover{
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #1abc9c;
+  }
+}
+
+.btn-red{
+  background:#BF2315;
+  color: #fff;
+  border-radius: 0.5rem !important;
+  &:hover{
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #BF2315;
+  }
+}
+
+.custom-table{ border: 1px solid white; }
+  .custom-table thead th {
+    background: #f2f2f2;
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+  }
+  .custom-table tbody{
+    color: white;
+    font-weight: 300;
+  }
+
+  .custom-table-hover tbody tr:hover {
+    color: #2C3E50;
+  }
+
+.fa-pencil:hover,
+.fa-eye:hover,
+.fa-times:hover{ color: #FFE262; cursor: pointer; }
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #dee2e6;
+  border-top-left-radius: calc(.3rem - 1px);
+  border-top-right-radius: calc(.3rem - 1px);
+  background: #1ABC9C;
+  color: white;
+}
+
+.pointer{ cursor: pointer; }
+
+.bg-danger{ color: #BF2315 !important; color: white !important; }
+
+.no-border {
+  border-top: none !important;
+}
