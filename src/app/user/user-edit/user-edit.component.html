@@ -1,9 +1,23 @@
 <div class="container">
   <div class="card">
-    <div class="card-header">
-      Editar Usuario
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <span>Editar Usuario</span>
+      <button class='btn btn-red' [routerLink]="['/']">Regresar</button>
     </div>
     <div class="card-body">
+      
+      <!-- Alerta -->
+      <div class="alert alert-warning fade show" *ngIf='alert'>
+        <button type="button" class="close" data-dismiss="alert" (click)='alert = false'>
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Se han encontrado los siguientes errores:</strong>
+        <ul>
+          <li *ngFor='let e of arrErrors'><ins>{{ e[0] }}</ins> - {{ e[1] }}</li>
+        </ul>
+      </div>
+      <!-- /Alerta -->
+
       <form #editUserForm="ngForm">
         <!-- User Data -->
         <div class="row">
@@ -49,7 +63,6 @@
             </div>
             <div class="form-group">
               <select name="country" class='form-control'  [ngModel]='user.addresses[0].country'>
-                <option [ngValue]="null" disabled selected>- Seleccionar -</option>
                 <option [ngValue]="c[1]" *ngFor='let c of arrCountries'>{{ c[0] }}</option>
               </select>
             </div>

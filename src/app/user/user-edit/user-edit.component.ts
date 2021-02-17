@@ -12,11 +12,14 @@ export class UserEditComponent implements OnInit {
   user: any;
   address: any;
   arrCountries: any;
+  arrErrors: any;
+  alert: boolean;
 
 
   constructor(private activatedRoute: ActivatedRoute, private userService: UsersService, private route: Router) { 
-    this.user = [];
-    this.address = { display: false, textButton: 'Agregar direccion' };
+    this.user    = [];
+    this.address = { display: false, textButton: '' };
+    this.alert   = false;
 
     this.activatedRoute.params.subscribe( params => {
       this.userService.getUserById( params.id )
@@ -27,6 +30,7 @@ export class UserEditComponent implements OnInit {
               { id: null, street: '', city: '', country: '', postalcode: '' }
             ]
           }
+          this.address = { display: true, textButton: 'Ocultar direccion' };
         } )
         .catch( (error) => console.log( error ) )
     } ); 
@@ -73,7 +77,14 @@ export class UserEditComponent implements OnInit {
         .then( (response) => {
           this.route.navigate(['/']);
         } )
-        .catch( (error) => console.log( error ) )
+        .catch( (e) => {
+          if( e.status == 422 ){
+            this.arrErrors = Object.entries(e.error)
+            this.alert = true;
+            window.scrollTo(0, 0);
+          }else
+            console.log( e.error )
+        } )
     } ); 
   }
 

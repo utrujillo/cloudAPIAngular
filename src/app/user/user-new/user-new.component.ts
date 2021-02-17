@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 
 @Component({
@@ -10,8 +11,11 @@ export class UserNewComponent implements OnInit {
 
   address: any;
   arrCountries: any;
+  arrErrors: any;
+  alert: boolean;
 
-  constructor(private userService: UsersService) {
+  constructor(private userService: UsersService, private route: Router) {
+    this.alert   = false;
     this.address = { display: false, textButton: 'Agregar direccion' };
   }
 
@@ -50,9 +54,15 @@ export class UserNewComponent implements OnInit {
 
     this.userService.create( toStore )
         .then( (response)=> {
-          console.log( response )
+          this.route.navigate(['/']);
         } )
-        .catch( (error) => console.log( error ) )
+        .catch( (e) => {
+          if( e.status == 422 ){
+            this.arrErrors = Object.entries(e.error)
+            this.alert = true;
+          }else
+            console.log( e.error )
+        } )
   }
 
 }

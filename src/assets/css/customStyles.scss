@@ -52,19 +52,19 @@ section{
   }
 }
 
-.table{ border: 1px solid white; }
-  .table thead th {
+.custom-table{ border: 1px solid white; }
+  .custom-table thead th {
     background: #f2f2f2;
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
     font-weight: 600;
   }
-  .table tbody{
+  .custom-table tbody{
     color: white;
     font-weight: 300;
   }
 
-  .table-hover tbody tr:hover {
+  .custom-table-hover tbody tr:hover {
     color: #2C3E50;
   }
 
@@ -85,3 +85,9 @@ section{
 }
 
 .pointer{ cursor: pointer; }
+
+.bg-danger{ color: #BF2315 !important; color: white !important; }
+
+.no-border {
+  border-top: none !important;
+}

@@ -9,7 +9,7 @@ export class UsersService {
   baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'http://localhost:3000/api/v1';
+    this.baseUrl = 'https://cloud-api-test.herokuapp.com/api/v1';
   }
 
   getAll(): Promise<any[]> {
@@ -30,5 +30,9 @@ export class UsersService {
 
   update(id: number, user: any): Promise<any> {
     return this.httpClient.patch<any>(`${this.baseUrl}/users/${id}`, user).toPromise();
+  }
+
+  delete(id: number): Promise<any> {
+    return this.httpClient.delete<any>(`${this.baseUrl}/users/${id}`).toPromise();
   }
 }

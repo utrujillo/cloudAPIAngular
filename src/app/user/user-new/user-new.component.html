@@ -1,15 +1,29 @@
 <div class="container">
   <div class="card">
-    <div class="card-header">
-      Nuevo Usuario
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <span>Nuevo Usuario</span>
+      <button class='btn btn-red' [routerLink]="['/']">Regresar</button>
     </div>
     <div class="card-body">
       <form #newUserForm="ngForm">
+
+        <!-- Alerta -->
+        <div class="alert alert-warning fade show" *ngIf='alert'>
+          <button type="button" class="close" data-dismiss="alert" (click)='alert = false'>
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong>Se han encontrado los siguientes errores:</strong>
+          <ul>
+            <li *ngFor='let e of arrErrors'><ins>{{ e[0] }}</ins> - {{ e[1] }}</li>
+          </ul>
+        </div>
+        <!-- /Alerta -->
+
         <!-- User Data -->
         <div class="row">
           <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12">
             <div class="form-group">
-              <input type="text" class="form-control" name="firstname" placeholder="Nombre" ngModel="user.firstname">
+              <input type="text" class="form-control" name="firstname" placeholder="Nombre" ngModel>
             </div>
             <div class="form-group">
               <input type="text" class="form-control" name="lastname" placeholder="Apellidos" ngModel>

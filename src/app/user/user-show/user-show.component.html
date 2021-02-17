@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <span>Información del Usuario</span>
+      <button class='btn btn-red' [routerLink]="['/']">Regresar</button>
+    </div>
+    <div class="card-body">
+      <table class='table'>
+        <tbody>
+          <tr>
+            <th width='200px' class='text-right no-border'>Usuario</th>
+            <td class='no-border'>{{ user.firstname }} {{ user.lastname }}</td>
+          </tr>
+          <tr>
+            <th class='text-right no-border'>Correo electronico</th>
+            <td class='no-border'>{{ user.email }}</td>
+          </tr>
+          <tr>
+            <th class='text-right no-border'>Fecha de nacimiento</th>
+            <td class='no-border'>{{ user.birthDate }}</td>
+          </tr>
+          <tr>
+            <th class='text-right no-border'>Ciudad</th>
+            <td class='no-border'>{{ user.addresses[0].city }}</td>
+          </tr>
+          <tr>
+            <th class='text-right no-border'>Dirección</th>
+            <td class='no-border'>{{ user.addresses[0].street }}</td>
+          </tr>
+          <tr>
+            <th class='text-right no-border'>Codigo Postal</th>
+            <td class='no-border'>{{ user.addresses[0].postalcode }}</td>
+          </tr>
+          <tr>
+            <th class='text-right no-border'>Idioma</th>
+            <td class='no-border'>{{ user.addresses[0].country }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
