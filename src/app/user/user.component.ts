@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'user',
@@ -7,21 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  operationType: string;
+  arrUsers: any[];
 
-  constructor() {
-    this.operationType = '';
+  constructor(private userService: UsersService) {
+    this.arrUsers = [];
+    this.userService.getAll()
+      .then( (response)=> {
+        this.arrUsers = response
+      } )
+      .catch( (error) => console.log( error ) )
   }
 
   ngOnInit(): void {
   }
 
-  newData(): void {
-    this.operationType = 'new'
-  }
-
-  editData(): void {
-    this.operationType = 'edit'
+  printStreet(user: any): string {
+    return user.addresses.length > 0 ? user.addresses[0].street : 'Sin direccion'
   }
 
 }
